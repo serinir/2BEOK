@@ -12,7 +12,7 @@
           contain
           :src="require('./assets/logo.png')"
           transition="scale-transition"
-          width="50"
+          width="70"
         />
       </div>
 
