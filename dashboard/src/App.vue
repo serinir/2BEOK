@@ -1,21 +1,46 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-import Dashboardinfo from './components/Dashboardinfo.vue';
-</script>
-
 <template>
-  <dashboardinfo></dashboardinfo>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Univ Logo"
+          class="shrink mr-2"
+          contain
+          :src="require('./assets/logo.png')"
+          transition="scale-transition"
+          width="50"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+
+    </v-app-bar>
+
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<script>
+export default {
+  name: 'App',
+  components: {
+  },
+  data: () => ({
+    //
+  }),
+  methods: {
+  },
+  computed: {
+    show_logout: function() {
+      console.log(this.$is_logged);
+      return this.$is_logged;
+    }
+  }
+};
+</script>

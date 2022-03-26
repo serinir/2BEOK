@@ -28,9 +28,9 @@ def check_if_doctor(f):
 
 class Doctor(Resource):
  
-    @check_if_doctor
+    # @check_if_doctor
     def get(self):
-        ids = db.users().get_user(_id=ObjectId(get_jwt_identity()))['tickets']
+        ids = db.users().get_user(_id=ObjectId(request.get_json()['_id']))['tickets']
 
         tickets = db.tickets().get_tickets(ids=ids)
 
