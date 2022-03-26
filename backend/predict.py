@@ -5,9 +5,9 @@ import os
 import glob
 
 def predict():
-    scores = pd.read_csv(os.path.join('../data','scores.csv'))
-    conditions = glob.glob(os.path.join('../data','condition','')+'*')
-    control = glob.glob(os.path.join('../data','control','')+'*')
+    scores = pd.read_csv(os.path.join('data','scores.csv'))
+    conditions = glob.glob(os.path.join('data','condition','')+'*')
+    control = glob.glob(os.path.join('data','control','')+'*')
 
     conditions_list = []
     control_list = []

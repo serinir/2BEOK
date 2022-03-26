@@ -8,13 +8,13 @@ from backend.signup import Signup
 from backend.tickets import Tickets
 from backend.doctor import Doctor
 from json import loads
-
+from flask_restful_swagger import swagger
 
 app = Flask(__name__)
 cors = CORS(app)
 jwt = JWTManager(app)
 api = Api(app)
-
+api = swagger.docs(api, apiVersion='0.1', api_spec_url='/api/spec')
 app.config["JWT_SECRET_KEY"] = "yellow submarine"
 app.config["PROPAGATE_EXCEPTIONS"] = True
 
