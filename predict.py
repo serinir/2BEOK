@@ -1,16 +1,17 @@
 import pandas as pd
 import lightgbm as lbm
-from sklearn.model_selection import RepeatedKFold,train_test_split,cross_val_score
+from sklearn.model_selection import train_test_split
 import os
 import glob
 
-def predict(X):
+def predict():
     scores = pd.read_csv(os.path.join('data','scores.csv'))
     conditions = glob.glob(os.path.join('data','condition','')+'*')
     control = glob.glob(os.path.join('data','control','')+'*')
 
     conditions_list = []
     control_list = []
+    
     for file in conditions:
         d = pd.read_csv(file).describe().T
         d['number']=os.path.basename(file)[:-4]
@@ -22,11 +23,10 @@ def predict(X):
 
     control_df = pd.concat(control_list)
     conditions_df = pd.concat(conditions_list)
-
     final_data = pd.concat([conditions_df,control_df])
+
     df = scores.merge(final_data,on='number')
     df = df.fillna(0)
-
     df = df.drop(['edu','age'],axis=1)
 
     X = df.drop(['afftype','number'],axis=1)
@@ -36,5 +36,8 @@ def predict(X):
 
     model = lbm.LGBMClassifier()
     model.fit(X_train,y_train)
-    predictions = model.predict(X)
+    predictions = model.predict_proba(X)
     return predictions
+import random
+print(random.choice(predict()[:,2]))
+
