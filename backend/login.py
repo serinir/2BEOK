@@ -4,8 +4,8 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import jwt_required
-from backend.utility import check_args
-from backend.database.db_api import db
+from utility import check_args
+from database.db_api import db
 
 
 class Login(Resource):

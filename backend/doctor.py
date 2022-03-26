@@ -4,7 +4,7 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import verify_jwt_in_request
 from bson.objectid import ObjectId
-from backend.database.db_api import db
+from database.db_api import db
 
 
 def check_if_doctor(f):
@@ -30,7 +30,8 @@ class Doctor(Resource):
  
     # @check_if_doctor
     def get(self):
-        ids = db.users().get_user(_id=ObjectId(request.get_json()['_id']))['tickets']
+        _id = dict(request.args)['_id']
+        ids = db.users().get_user(_id=ObjectId(_id))['tickets']
 
         tickets = db.tickets().get_tickets(ids=ids)
 

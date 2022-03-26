@@ -1,7 +1,7 @@
 from flask import request
 from flask_restful import Resource
-from backend.utility import check_args
-from backend.database.db_api import db
+from utility import check_args
+from database.db_api import db
 
 class Signup(Resource):
     post_args = [

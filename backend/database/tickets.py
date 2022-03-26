@@ -2,6 +2,7 @@ from hashlib import sha256
 from datetime import datetime
 from os import getenv
 from bson.objectid import ObjectId
+import random
 
 """
 _id: ObjectId
@@ -27,6 +28,7 @@ class Tickets():
             'doctors': res['doctors'],
             'patient': res['patient'],
             'history': res['history'],
+            "prediction": f"{random.random() * 100:.2f}",
             'date': res['date'].strftime("%Y/%m/%d %H:%M:%S")
         }
 
