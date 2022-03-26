@@ -4,9 +4,9 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import verify_jwt_in_request
 from datetime import datetime
-from utility import check_args
+from backend.utility import check_args
 from bson.objectid import ObjectId
-from database.db_api import db
+from backend.database.db_api import db
 
 
 class Tickets(Resource):

@@ -1,6 +1,6 @@
 import pymongo
-from database.users import Users
-from database.tickets import Tickets
+from backend.database.users import Users
+from backend.database.tickets import Tickets
 
 
 class DB_Api():

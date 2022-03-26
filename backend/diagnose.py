@@ -1,6 +1,6 @@
 from flask import request
 from flask_restful import Resource
-from predict import predict
+from backend.predict import predict
 import random
 
 
