@@ -12,11 +12,9 @@ pure-eval==0.2.2
 pycairo==1.20.1
 pycparser==2.20
 pycrypto==2.6.1
-pycups==2.0.1
 pycurl==7.44.1
 pyenchant==3.2.2
 Pygments==2.11.2
-PyGObject==3.42.0
 pykickstart==3.34
 pyOpenSSL==21.0.0
 pyparsing==2.4.7
