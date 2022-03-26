@@ -2,6 +2,7 @@ flask
 flask_restful
 flask_cors
 pymongo[srv]
+lightgbm
 flask_jwt_extended
 matplotlib==3.5.1
 numpy==1.22.3
