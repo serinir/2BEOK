@@ -1,1 +1,1 @@
-web:python backend/api.py
+web: gunicorn wsgi:app
