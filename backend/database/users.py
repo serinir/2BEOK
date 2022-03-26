@@ -57,7 +57,7 @@ class Users():
 
     def update_user(self, doctor_id: ObjectId, ticket_id: ObjectId):
         tickets = self.get_user(_id=doctor_id)['tickets'] + [ticket_id]
-        self.users().update_one({"_id": doctor_id}, {"$set": {"tickets": tickets}})
+        self.users.update_one({"_id": doctor_id}, {"$set": {"tickets": tickets}})
 
     def hash_pwd(self, password: str) -> bytes:
         r = self.SALT + password
