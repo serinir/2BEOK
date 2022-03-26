@@ -1,5 +1,8 @@
 flask
 flask_restful
+flask_cors
+pymongo[srv]
+flask_jwt_extended
 matplotlib==3.5.1
 numpy==1.22.3
 pandas==1.4.1
