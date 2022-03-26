@@ -18,7 +18,7 @@ Pygments==2.11.2
 pykickstart==3.34
 pyOpenSSL==21.0.0
 pyparsing==2.4.7
-
+gunicorn
 requests==2.27.0
 scikit-learn==1.0.2
 scipy==1.8.0

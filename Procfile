@@ -1,1 +1,1 @@
-web: gunicorn -b 0.0.0.0:80 backend.api:app
+web: python -m gunicorn -b 0.0.0.0:80 backend.api:app
