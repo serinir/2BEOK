@@ -4,7 +4,7 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import verify_jwt_in_request
 from bson.objectid import ObjectId
-from database.db_api import db
+from backend.database.db_api import db
 
 
 def check_if_doctor(f):

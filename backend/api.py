@@ -2,11 +2,11 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
-from diagnose import Diagnose
-from login import Login
-from signup import Signup
-from tickets import Tickets
-from doctor import Doctor
+from backend.diagnose import Diagnose
+from backend.login import Login
+from backend.signup import Signup
+from backend.tickets import Tickets
+from backend.doctor import Doctor
 from json import loads
 
 
