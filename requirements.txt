@@ -14,10 +14,8 @@ prompt-toolkit==3.0.28
 psutil==5.9.0
 ptyprocess==0.6.0
 pure-eval==0.2.2
-pycairo==1.20.1
 pycparser==2.20
 pycrypto==2.6.1
-pycurl==7.44.1
 pyenchant==3.2.2
 Pygments==2.11.2
 pykickstart==3.34
@@ -27,5 +25,5 @@ gunicorn
 requests==2.27.0
 scikit-learn==1.0.2
 scipy==1.8.0
-sklearn==0.0
+sklearn
 dnspython

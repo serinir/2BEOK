@@ -9,7 +9,7 @@ Vue.use(VueResource);
 Vue.use(VueCookies);
 
 Vue.config.productionTip = false
-Vue.prototype.$api = 'http://127.0.0.1:8000/api'
+Vue.prototype.$api = 'http://127.0.0.1:5000/api'
 
 new Vue({
   vuetify,

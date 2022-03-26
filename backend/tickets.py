@@ -4,9 +4,9 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import verify_jwt_in_request
 from datetime import datetime
-from backend.utility import check_args
+from utility import check_args
 from bson.objectid import ObjectId
-from backend.database.db_api import db
+from database.db_api import db
 
 
 class Tickets(Resource):
@@ -54,9 +54,16 @@ class Tickets(Resource):
 
         if 'doctor_id' in data.keys():
             db.tickets().update_ticket(_id=data['_id'], doctor_id=data['doctor_id'])
-            db.users().update_user(doctor_id=ObjectId(data['doctor_id']), ticket_id=data['_id'])
+            db.users().update_user(doctor_id=ObjectId(data['doctor_id']), ticket_id=ObjectId(data['_id']))
         elif 'summary' in data.keys():
-            data['date'] = datetime.utcnow().strftime("%Y/%m/%d %H:%M:%S")
-            db.tickets().update_ticket(_id=data['_id'], summary=data['summary'])
+            doctor = db.users().get_user(_id=ObjectId(data['summary']['doctor_id']))
+
+            summary = {
+                'date': datetime.utcnow().strftime("%Y/%m/%d %H:%M:%S"),
+                'doctor': doctor['first_name'] + " " + doctor['last_name'],
+                'note': data['summary']['note']
+            }
+
+            db.tickets().update_ticket(_id=data['_id'], summary=summary)
 
         return '', 200
