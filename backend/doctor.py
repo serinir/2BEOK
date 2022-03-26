@@ -3,7 +3,6 @@ from flask_restful import Resource
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import verify_jwt_in_request
-from utility import check_args
 from bson.objectid import ObjectId
 from database.db_api import db
 
@@ -12,7 +11,7 @@ def check_if_doctor(f):
 
     def wrapper(*args):
         verify_jwt_in_request()
-        _id = get_jwt_identity()
+        _id = ObjectId(get_jwt_identity())
         claims = get_jwt()
 
         res = db.users().get_user(_id=_id)
@@ -37,6 +36,7 @@ class Doctor(Resource):
 
         for ticket in tickets:
             patient = db.users().get_user(_id=ticket['patient'])
+            ticket['doctors'] = [i.binary.hex() for i in ticket['doctors']]
             ticket['patient'] = {'first_name': patient['first_name'], 'last_name': patient['last_name'], 'mail': patient['mail']}
 
         return tickets, 200

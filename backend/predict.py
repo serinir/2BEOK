@@ -5,9 +5,9 @@ import os
 import glob
 
 def predict():
-    scores = pd.read_csv(os.path.join('data','scores.csv'))
-    conditions = glob.glob(os.path.join('data','condition','')+'*')
-    control = glob.glob(os.path.join('data','control','')+'*')
+    scores = pd.read_csv(os.path.join('../data','scores.csv'))
+    conditions = glob.glob(os.path.join('../data','condition','')+'*')
+    control = glob.glob(os.path.join('../data','control','')+'*')
 
     conditions_list = []
     control_list = []
@@ -38,6 +38,3 @@ def predict():
     model.fit(X_train,y_train)
     predictions = model.predict_proba(X)
     return predictions
-import random
-print(random.choice(predict()[:,2]))
-
